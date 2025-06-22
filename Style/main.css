@@ -1,0 +1,59 @@
+/* === Paleta Azul Serenity === */
+:root {
+  --azul-principal: #5C80BC;
+  --azul-escuro: #2C3E50;
+  --coral-claro: #F88F70;
+  --cinza-claro: #F4F4F4;
+  --branco: #FFFFFF;
+}
+
+body {
+  background-color: var(--cinza-claro);
+  color: var(--azul-escuro);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h5 {
+  color: var(--azul-principal);
+}
+
+.btn-primary {
+  background-color: var(--azul-principal);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--coral-claro);
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.form-control,
+.form-select {
+  background-color: var(--branco);
+  border: 1px solid #ccc;
+}
+
+.card {
+  border: none;
+  background-color: var(--branco);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4em 0.6em;
+  border-radius: 0.4rem;
+}
