@@ -35,27 +35,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const lista = document.getElementById("lista-recentes");
     if (!lista) return;
 
-    const agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+    let agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
     const ultimos = agendamentos.slice(-5).reverse();
 
     lista.innerHTML = "";
 
-    ultimos.forEach(item => {
+    ultimos.forEach((item, index) => {
+      const realIndex = agendamentos.length - 1 - index;
       const li = document.createElement("li");
-      li.className = "list-group-item d-flex justify-content-between align-items-center";
+      li.className = "card-agendamento d-flex justify-content-between align-items-center mb-2";
       li.innerHTML = `
         <div>
           <strong>${item.nome}</strong><br>
           <small>${item.data} às ${item.hora} — ${item.tipo}</small>
         </div>
-        <span class="badge bg-${getBadge(item.status)}">${item.status}</span>
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge badge-status badge-${getBadge(item.status)}">${item.status}</span>
+          <button class="btn btn-sm btn-outline-success" onclick="alterarStatus(${realIndex}, 'Confirmado')">✔</button>
+          <button class="btn btn-sm btn-outline-danger" onclick="alterarStatus(${realIndex}, 'Cancelado')">✖</button>
+        </div>
       `;
       lista.appendChild(li);
     });
   }
 
+  window.alterarStatus = function (index, novoStatus) {
+    const agendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
+    agendamentos[index].status = novoStatus;
+    localStorage.setItem("agendamentos", JSON.stringify(agendamentos));
+    atualizarListaRecentes();
+  };
+
   function getBadge(status) {
-    return status === "Confirmado" ? "success" : status === "Cancelado" ? "danger" : "secondary";
+    return status === "Confirmado" ? "confirmado" : status === "Cancelado" ? "cancelado" : "pendente";
   }
 
   atualizarListaRecentes();

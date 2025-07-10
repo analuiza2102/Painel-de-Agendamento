@@ -57,3 +57,43 @@ h1, h2, h5 {
   padding: 0.4em 0.6em;
   border-radius: 0.4rem;
 }
+
+/* Estilo extra para container de formulário */
+.form-container {
+  background-color: var(--branco);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  max-width: 720px;
+  margin: auto;
+}
+
+/* Estilo dos cards de agendamentos */
+.card-agendamento {
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 1rem 1.5rem;
+}
+
+.badge-status {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.badge-pendente {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.badge-confirmado {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.badge-cancelado {
+  background-color: #dc3545;
+  color: #fff;
+}
