@@ -71,4 +71,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   atualizarListaRecentes();
+
+  const btnLimpar = document.getElementById("btn-limpar");
+
+  btnLimpar.addEventListener("click", function () {
+    if (confirm("Tem certeza que deseja apagar todos os agendamentos?")) {
+      localStorage.removeItem("agendamentos");
+      atualizarListaRecentes();
+    }
+  });
+
 });
